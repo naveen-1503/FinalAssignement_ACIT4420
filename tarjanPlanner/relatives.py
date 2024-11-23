@@ -17,6 +17,19 @@ class reliativesManager:
         for relative in self.relatives:
             print(f"Relative: {relative['Relative']}, Street_name: {relative['Street_name']}, District (Gu): {relative['District (Gu)']}, Latitude: {relative['Latitude']}, Longitude: {relative['Longitude']}")
 
+    def addRelatives(self, latitude, longitude, streetname="-", ditrict="-"):
+        
+        relative = {'Relative': "Relative_" + str(11),
+            'Street_name': streetname, 
+            'District (Gu)': ditrict,       
+            'Latitude': latitude,
+            'Longitude': longitude 
+        }
+        self.relatives.append(relative)
+
+        
+    
 
 relatives = reliativesManager()
+relatives.addRelatives(23.2343, 124.232)
 relatives.listRelatives()
