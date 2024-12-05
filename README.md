@@ -33,7 +33,7 @@ The project uses the following Python libraries:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/naveen-1503/TarjanPlanner.git
+   git clone https://github.com/naveen-1503/FinalAssignement_ACIT4420.git
    cd tarjanPlanner
    ```
 
@@ -118,15 +118,15 @@ The script supports categorizing files into common types, such as images, docume
 ### Steps to Install
 
 1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/naveen-1503/TarjanPlanner.git 
+
+   git clone https://github.com/naveen-1503/FinalAssignement_ACIT4420.git
    cd fileOrganizer
-   ```
+
 
 2. Install the package locally:
-   ```bash
+
    pip install .
-   ```
+
 
    This command will set up the script as a command-line utility.
 
@@ -140,7 +140,7 @@ Once installed, you can use the `fileOrganizer` command to run the script. Follo
 
 1. Open a terminal or command prompt.
 2. Run the following command:
-   "bash
+   "
    fileOrganizer
    "
 3. When prompted, enter the path to the directory you want to organize:
@@ -149,25 +149,6 @@ Once installed, you can use the `fileOrganizer` command to run the script. Follo
   "
 
    The script will then organize the files in the specified directory into categorized subdirectories.
-
----
-
-## Development Setup
-
-If you want to modify the script or run it directly from the source, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/file_sorter.git
-   cd file_sorter
-   ```
-
-2. Run the script:
-   ```bash
-   python file_sorter/main_script.py
-   ```
-
----
 
 ## Logging and Debugging
 

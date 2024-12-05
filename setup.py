@@ -13,7 +13,7 @@ setup(
         "geopy>=2.0.0",
         "tabulate>=0.8.10"
     ],
-    url='https://github.com/naveen-1503/TarjanPlanner.git',
+    url='https://github.com/naveen-1503/FinalAssignement_ACIT4420.git',
     entry_points={
         'console_scripts': [
             'run-automation=main:main',
