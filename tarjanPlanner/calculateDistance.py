@@ -1,4 +1,7 @@
+#calculateDistance.py
+
 from geopy.distance import geodesic
+from logger import log_function_call
 
 def calculateDistance(x):
     distArr = []
@@ -13,26 +16,50 @@ def calculateDistance(x):
     
     return distArr    
 
+@log_function_call
 def shortestDist(distArr):
-        
-    sDistArr={}
-    for relative in distArr:
-        if relative['From_Relative'] not in sDistArr or relative['TotalDistance'] < sDistArr[relative['From_Relative']]['TotalDistance']:
-            sDistArr[relative['From_Relative']] = {
-                "To_Relative": relative['To_Relative'],
-                "TotalDistance": relative['TotalDistance']
-            }      
-            
-           
-        shortDist = [
-            {"From_Relative": relative['From_Relative'], "To_Relative": data['To_Relative'], "TotalDistance": data['TotalDistance']}
-            for relative['From_Relative'], data in sDistArr.items()
-        ]
-            
-                
     
-    for item in shortDist:
-        print(item)
+    sDistArr= list({dist['From_Relative'] for dist in distArr}.union({dist['To_Relative'] for dist in distArr}))
+    sDistArr.sort()
+    num_relatives = len(sDistArr)
+
+    dist_matrix = {rel: {rel: float('inf') for rel in sDistArr} for rel in sDistArr}
+    for entry in distArr:
+        dist_matrix[entry['From_Relative']][entry['To_Relative']] = entry['TotalDistance']    
+        dist_matrix[entry['From_Relative']][entry['To_Relative']] = entry['TotalDistance']    
+
+    current = sDistArr[0]
+    path = [current]
+    total_distance = 0
+    route_details = []
+
+    while len(path) < num_relatives:
+        next_relative = None
+        shortestDist = float('inf')
+        
+        for neighbor, dist in dist_matrix[current].items():
+            if neighbor not in path and dist < shortestDist:
+                next_relative = neighbor
+                shortestDist = dist
+        path.append(next_relative)
+        total_distance += shortestDist
+        route_details.append({
+            "From_Relative": current,
+            "To_Relative": next_relative,
+            "Distance": shortestDist
+        })     
+        current = next_relative   
+
+        
+
+    total_distance += dist_matrix[current][path[0]]
+    path.append(path[0]) 
+    route_details.append({
+        "From_Relative": current,
+        "To_Relative": path[0],
+        "Distance": total_distance
+    })       
+    return {'Path': path, 'Total_Distance': total_distance, 'route_details': route_details}
         
 
 x = [

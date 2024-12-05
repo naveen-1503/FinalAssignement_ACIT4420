@@ -1,0 +1,3 @@
+2024-12-05 09:01:03.987883 test.py moved to folder /USERS/naveen/test/others/test.py
+2024-12-05 09:01:03.988211 test.jpg moved to folder /USERS/naveen/test/images/test.jpg
+2024-12-05 09:01:03.989828 test.txt moved to folder /USERS/naveen/test/documents/test.txt
